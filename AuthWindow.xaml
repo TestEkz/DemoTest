@@ -1,0 +1,45 @@
+﻿<Window x:Class="DemoEkzTest.Pages.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoEkzTest.Pages"
+        mc:Ignorable="d"
+        Title="AuthWindow" Height="200" Width="300" Name="TitleWin">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Авторизация" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <TextBlock Text="Логин: " FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="TBoxLogin" Width="100" Height="20" Margin="5 0 0 0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <TextBlock Text="Пароль: " FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <PasswordBox Name="TBoxPass" Width="100" Height="20" Margin="5 0 0 0"/>
+        </StackPanel>
+        <Button Content="Войти" Width="80" Height="20" Grid.Row="3" Name="BtnAuth" Click="BtnAuth_Click"/>
+        <StackPanel Grid.Row="4" Orientation="Vertical" HorizontalAlignment="Center" Visibility="Hidden"
+                    Name="StackCaptcha">
+            <StackPanel Width="80" Height="30" Background="gray">
+                <TextBlock Name="TxtCaptcha" FontSize="16" Foreground="black" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <TextBox x:Name="TBoxCaptcha" Width="80" Height="20" Margin="0 5 0 0"/>
+            <Button x:Name="BtnCaptcha" Width="50" Height="20" Margin="0 5 0 0" Content="Ввод"
+                    Click="BtnCaptcha_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Name="StackTimer"
+                    Grid.Row="4" Margin="0 5 0 0" VerticalAlignment="Top" Visibility="Hidden">
+            <Label Content="До раздокировки: "  Foreground="Red"/>
+            <Label Name="LabelkTimer" Foreground="Red" Width="auto" Content="123"/>
+            <Label Foreground="Red" Width="auto" Content="cек."/>
+        </StackPanel>
+    </Grid>
+</Window>

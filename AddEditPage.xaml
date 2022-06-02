@@ -1,0 +1,54 @@
+﻿<Page x:Class="ZadaniePM01.AddEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZadaniePM01"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="154"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Добавление новой услуги" Name="Header" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBlock Text="Наименование: " Grid.Row="1" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="Top" />
+        <TextBlock Text="Цена: " Grid.Row="2" HorizontalAlignment="Right" FontSize="20"/>
+        <TextBlock Text="Длительность: " Grid.Row="3" HorizontalAlignment="Right" FontSize="20"/>
+        <TextBlock Text="Описание: " Grid.Row="4" VerticalAlignment="Top"  HorizontalAlignment="Right" FontSize="20"/>
+        <TextBlock Text="Скидка: " Grid.Row="5" HorizontalAlignment="Right" FontSize="20"/>
+        <Button Content="Изображение" Name="BtnImg" Click="BtnImg_Click" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left"/>
+        <Image Width="100" Name="Img" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Stretch="Uniform" HorizontalAlignment="Center" >
+            <Image.Source>
+                <Binding Path="MainImagePath">
+                    <Binding.TargetNullValue>
+                        <ImageSource>Resources/picture.png</ImageSource>
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
+        <Button Content="Сохранить" Name="BtnEdit" Click="BtnEdit_Click" Grid.Row="7" Grid.ColumnSpan="2" Height="25" Width="150"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Width="500" HorizontalAlignment="Left"
+                 Text="{Binding Title}" Height="50" TextWrapping="Wrap" FontSize="16" Name="txtTitle"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="100" HorizontalAlignment="Left" FontSize="16"
+                 Text="{Binding Cost}" Height="25"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="100" HorizontalAlignment="Left" FontSize="16"
+                 Text="{Binding DurationInSeconds}" Height="25"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="300" HorizontalAlignment="Left" FontSize="16"
+                 Text="{Binding Description}" TextWrapping="Wrap" Height="50"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Width="100" HorizontalAlignment="Left" FontSize="16"
+                 Text="{Binding Discount}" Height="25"/>
+    </Grid>
+</Page>
